@@ -2,11 +2,6 @@ db
 dgfhjkl
 vijay 
 dabidi dibide
-sdad
+sdadgjhkjlkl
 HI Bro
-ok
-enti cheppu bro
-akhdhkah
 
-sdifuhfoidjfiojesoi
-ahdajkkadhkak
