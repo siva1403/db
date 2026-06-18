@@ -18,7 +18,6 @@ def main():
     print("Pipeline Started")
     build_app()
     run_script()
-    build_app()
     print("Pipeline Completed")
 
 if __name__ == "__main__":
