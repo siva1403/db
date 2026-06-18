@@ -1,4 +1,21 @@
-name: Databricks CI/CD
+# name: Databricks CI/CD
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   test-and-deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v4
+#       - name: Run script
+#         run:  bash db.sh
+
+
+name: Run Python Script
 
 on:
   push:
@@ -6,10 +23,15 @@ on:
       - main
 
 jobs:
-  test-and-deploy:
+  run:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      - name: Run script
-        run:  bash db.sh
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Run Python Pipeline
+        run: python a.py
