@@ -4,7 +4,8 @@ from datetime import datetime
 
 
 #print(timestamp)
-timestamp = datetime.now().strftime("%H:%M:%S %d %b %Y")
+start_timestamp = datetime.now().strftime("%H:%M:%S %d %b %Y")
+end_timestamp = datetime.now().st
 
 import subprocess
 

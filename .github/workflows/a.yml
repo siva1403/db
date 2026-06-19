@@ -15,23 +15,56 @@
 #         run:  bash db.sh
 
 
-name: Run Python Script
+# name: Run Python Script
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   run:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - uses: actions/checkout@v4
+
+#       - uses: actions/setup-python@v5
+#       #   with:
+#       #     python-version: '3.13'
+
+#       # # - name: Run Python Pipeline
+
+#       # #   run: python app.py
+      
+
+name: Build and Run Docker Container
 
 on:
   push:
     branches:
-      - main
+    - main
 
 jobs:
-  run:
+  docker-build-run:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
+      - name: Build Docker Image
+        run: |
+          docker build -t python-app:latest .
 
-      - name: Run Python Pipeline
-        run: python a.py
+      - name: Verify Docker Image
+        run: |
+          docker images
+
+      - name: Run Docker Container
+        run: |
+          docker run --name python-container python-app:latest
+
+      - name: Verify Containerz
+        run: |
+              docker ps -a
