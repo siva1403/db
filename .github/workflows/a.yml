@@ -61,10 +61,16 @@ jobs:
         run: |
           docker images
 
-      # - name: Run Docker Container
-      #   run: |
-      #     docker run --name python-container python-app:latest
+      - name: Run Docker Container
+        run: |
+          docker run --name python-container python-app:latest
 
-      # - name: Verify Containerz
-      #   run: |
-      #         docker ps -a
+      - name: Verify Containerz
+        run: |
+              docker ps -a
+
+      - name: Upload Docker Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-image
+          path: myapp.tar
